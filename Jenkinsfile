@@ -1,4 +1,4 @@
 node() {
   checkout scm
-  sh 'echo ${TAGNAME}'
+  sh 'echo ${GIT_TAG_NAME}'
 }
