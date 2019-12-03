@@ -31,7 +31,7 @@ def fileInput(filesName) {
 }
 
 node {
-  def filesName = fileInput()
+  def filesName = getFilesName()
   def getEnv = envInput()
   def getFileInput = fileInput(filesName)
   println(getEnv, getFileInput)
