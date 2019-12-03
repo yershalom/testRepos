@@ -4,10 +4,9 @@ def getFilesName() {
     def list = []
     def dir = new File(System.properties['java.io.tmpdir'])
     dir.eachFileRecurse (FileType.FILES) { file ->
-        list << file.path
+        list << file
     }
-    sleep(3)
-    return list.join("\n")
+    return list.each { it.path }
 }
 
 def envInput() {
