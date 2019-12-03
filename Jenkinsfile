@@ -32,6 +32,7 @@ def fileInput(filesName) {
 
 node {
   def filesName = getFilesName()
+  echo "${filesName}"
   def getEnv = envInput()
   def getFileInput = fileInput(filesName)
   println(getEnv)
