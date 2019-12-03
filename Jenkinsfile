@@ -34,5 +34,6 @@ node {
   def filesName = getFilesName()
   def getEnv = envInput()
   def getFileInput = fileInput(filesName)
-  println(getEnv, getFileInput)
+  println(getEnv)
+  println(getFileInput)
 }
