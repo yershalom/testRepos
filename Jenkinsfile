@@ -6,6 +6,7 @@ def getFilesName() {
     dir.eachFileRecurse (FileType.FILES) { file ->
         list << file.path
     }
+    sleep(3000)
     return list.join("\n")
 }
 
