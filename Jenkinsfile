@@ -2,7 +2,6 @@ import groovy.io.FileType
 
 def getFilesName() {
     def list = []
-
     def dir = new File(System.properties['java.io.tmpdir'])
     dir.eachFileRecurse (FileType.FILES) { file ->
         list << file.path
@@ -10,18 +9,30 @@ def getFilesName() {
     return list
 }
 
-def verify(shek) {
-    stage('Verify') {
+def envInput() {
+    stage('env menu') {
+        def choice = ["QA", "STG", "PROD"]
         def userInput = input(
-            id: 'userInput', message: 'This is PRODUCTION!', parameters: [
-            [$class: 'ChoiceParameterDefinition', choices: shek, description: '', name: 'Choose kid']
+            id: 'envInput', message: 'Please choose an Enviromant to deply!', parameters: [
+            [$class: 'ChoiceParameterDefinition', choices: choice , description: 'user choose env to deploy to', name: 'envInput']
+        ])
+        return userInput
+    }
+}
+
+def fileInput(filesName) {
+    stage('files menu') {
+        def userInput = input(
+            id: 'fileInput', message: 'Please choose an file to deply!', parameters: [
+            [$class: 'ChoiceParameterDefinition', choices: filesName , description: 'Choose file to deploy', name: 'fileInput']
         ])
         return userInput
     }
 }
 
 node {
-  def shek = getFilesName()
-  def kid = verify(shek)
-  println(kid)
+  def filesName = fileInput()
+  def getEnv = envInput()
+  def getFileInput = fileInput(filesName)
+  println(getEnv, getFileInput)
 }
