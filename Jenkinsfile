@@ -1,10 +1,10 @@
-import groovy.io.FileType.FILES
+import groovy.io.FileType
 
 def getFilesName() {
     def list = []
     def dir = new File(System.properties['java.io.tmpdir'])
     println("!!!!!!!!!!!!!!!!!!! $dir")
-    dir.traverse(type: FILES, maxDepth: 0) { list.add(it) };
+    dir.traverse(type: FileType.FILES, maxDepth: 0) { list.add(it) };
     return list
 }
 
