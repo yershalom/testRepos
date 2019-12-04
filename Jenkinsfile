@@ -3,6 +3,7 @@ import groovy.io.FileType
 def getFilesName() {
     def list = []
     def dir = new File(System.properties['java.io.tmpdir'])
+    println("!!!!!!!!!!!!!!!!!!! $dir")
     dir.eachFile { file ->
         println(file.path)
         list.add(file.path)
