@@ -3,7 +3,7 @@ import groovy.io.FileType
 def getFilesName() {
     def list = []
     def dir = new File(System.properties['java.io.tmpdir'])
-    dir.eachFileRecurse (FileType.FILES) { file ->
+    dir.eachFile (FileType.FILES) { file ->
         println(file.path)
         list << file.path
     }
