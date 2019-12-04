@@ -2,11 +2,12 @@ import groovy.io.FileType
 
 def getFilesName() {
     def list = []
+    def f = ""
     def dir = new File(System.properties['java.io.tmpdir'])
     dir.eachFileRecurse (FileType.FILES) { file ->
-        list << file.path
+        f = f + file.path + "\n"
     }
-    return list.join("\n")
+    return f
 }
 
 def envInput() {
