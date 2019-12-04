@@ -6,7 +6,7 @@ def getFilesName() {
     dir.eachFileRecurse (FileType.FILES) { file ->
         list << file
     }
-    return list.each { it.path }
+    return list.join("\n")
 }
 
 def envInput() {
