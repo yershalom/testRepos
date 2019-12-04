@@ -4,7 +4,10 @@ def getFilesName() {
     def list = []
     def dir = new File(System.properties['java.io.tmpdir'])
     println("!!!!!!!!!!!!!!!!!!! $dir")
-    dir.traverse(type: FileType.FILES, maxDepth: 0) { list.add(it) };
+    dir.traverse(type: FileType.FILES, maxDepth: 0) {
+        println(it)
+        list.add(it)
+    };
     return list
 }
 
