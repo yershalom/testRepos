@@ -4,7 +4,7 @@ def getFilesName() {
     def list = []
     def dir = new File(System.properties['java.io.tmpdir'])
     dir.eachFileRecurse (FileType.FILES) { file ->
-        list << file
+        list << file.path
     }
     return list.join("\n").toString()
 }
@@ -33,8 +33,8 @@ def fileInput(filesName) {
 node {
   def filesName = getFilesName()
   echo "${filesName}"
-  def getEnv = envInput()
-  def getFileInput = fileInput(filesName)
-  println(getEnv)
-  println(getFileInput)
+  // def getEnv = envInput()
+  // def getFileInput = fileInput(filesName)
+  // println(getEnv)
+  // println(getFileInput)
 }
