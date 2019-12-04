@@ -4,10 +4,14 @@ def getFilesName() {
     def list = []
     def dir = new File(System.properties['java.io.tmpdir'])
     println("!!!!!!!!!!!!!!!!!!! $dir")
-    dir.eachFile { file ->
-        println(file.path)
-        list.add(file.path)
+    for (file in dir) {
+        println(file)
+        list.add(file)
     }
+//    dir.eachFile { file ->
+  //      println(file.path)
+    //    list.add(file.path)
+    //}
     return list
 }
 
