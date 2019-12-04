@@ -5,7 +5,7 @@ def getFilesName() {
     def dir = new File(System.properties['java.io.tmpdir'])
     dir.eachFile { file ->
         println(file.path)
-        list << file.path
+        list.add(file.path)
     }
     return list
 }
