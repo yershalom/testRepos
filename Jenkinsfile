@@ -5,6 +5,7 @@ def getFilesName() {
     def f = ""
     def dir = new File(System.properties['java.io.tmpdir'])
     dir.eachFileRecurse (FileType.FILES) { file ->
+        println(file)
         f = f + file.path + "\n"
     }
     return f
