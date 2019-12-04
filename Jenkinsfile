@@ -7,6 +7,7 @@ def getFilesName() {
         list << file.path
     }
     return list
+}
 
 def envInput() {
     stage('env menu') {
