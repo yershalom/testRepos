@@ -1,5 +1,6 @@
 import groovy.io.FileType
 
+@NonCPS
 def getFilesName() {
     def list = []
     def dir = new File(System.properties['java.io.tmpdir'])
