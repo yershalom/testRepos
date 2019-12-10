@@ -1,7 +1,7 @@
 import groovy.io.FileType
 import jenkins.model.Jenkins
 
-def workingDir = "/var/lib/jenkins/workspace"
+env.workingDir = "/var/lib/jenkins/workspace"
 
 // function that pulls all the theme files to deploy depending on the environment choices.
 @NonCPS
