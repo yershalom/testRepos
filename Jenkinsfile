@@ -1,7 +1,7 @@
 import groovy.io.FileType
 import jenkins.model.Jenkins
 
-env.workingDir = "/tmp"
+env.workingDir = "/tmp/"
 
 // function that pulls all the theme files to deploy depending on the environment choices.
 @NonCPS
