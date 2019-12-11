@@ -1,13 +1,13 @@
 import groovy.io.FileType
 import jenkins.model.Jenkins
 
-env.workingDir = "/tmp/"
+env.workingDir = "/var/lib/jenkins/workspace"
 
 // function that pulls all the theme files to deploy depending on the environment choices.
 @NonCPS
 def getFilesName() {
     def list = []
-    def dir = new File(workingDir + env_choice)
+    def dir = new File("${workingDir}/${env_choice}")
     dir.eachFileRecurse (FileType.FILES) { file ->
         if (file.path.contains(".zip") && !file.path.contains("@")) {
             def newFile = file.path.split("/")
@@ -53,7 +53,7 @@ node {
                      name: 'Url'],
                 ])
 
-            echo ("single url is: "+singleUrl)
+            echo ("single url is: ${singleUrl}")
         }
 // printing all choices to be used in single_mass bash script.
         echo "Choosen env is: $env_choice"
