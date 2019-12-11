@@ -44,7 +44,7 @@ node {
     def getDeploy = deployInput()
     stage('get_Single_url') {
         def inputUrl
-        if (deployInput == "single") { //this if is to open a text box to get url to single deploy. if the input of serverDeploy == single open a text box. its not working right
+        if (getDeploy == "SINGLE") { //this if is to open a text box to get url to single deploy. if the input of serverDeploy == single open a text box. its not working right
             def singleUrl = input(
                 id: 'singleUrl', message: 'enter url address for single deploy:',
                 parameters: [
