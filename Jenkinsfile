@@ -34,8 +34,8 @@ def wcmsPlugins() {
             id: 'wcmsInput', message: 'Will deploy include wcms spacial plugins?', parameters: [
             [$class: 'BooleanParameterDefinition', defaultValue: false, description: 'Check box to also install wcms spacial plugins', name: 'wcmsInput']
         ])
-        return wcmsPlugins
         echo ("wcms plugin is:"+wcmsInput)
+        return wcmsPlugins
     }
 }// dropdown menu to choose the external plugin to install
 def externalPlugins() {
@@ -44,8 +44,8 @@ def externalPlugins() {
             id: 'externalPlugins', message: 'Will the deploy include external plugins?', parameters: [
             [$class: 'BooleanParameterDefinition', defaultValue: false, description: 'Check box to also install external plugins', name: 'externalPlugins']
         ])
-        return wcmsPlugins
         echo ("wcms plugin is:"+wcmsInput)
+        return wcmsPlugins
     }
 }
 // dropdown menu to choose the deploy type:  single or mass.
@@ -63,7 +63,7 @@ node {
     def filesName = getFilesName()
     def getFileInput = fileInput(filesName)
     def getDeploy = deployInput()
-    //def getWcms = wcmsPlugins()
+    def getWcms = wcmsPlugins()
     stage('get_Single_url') {
         def inputUrl
         if (getDeploy == "SINGLE") {
