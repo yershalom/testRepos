@@ -1,0 +1,18 @@
+def deployInput() {
+    stage('Deploy Type'){
+        def deploy = ['SINGLE', 'MASS'] //array for deploy type
+        def serverInput = input(
+            id: 'deployType', message: 'Please choose mass or single', parameters:[
+            [$class: 'ChoiceParameterDefinition', choices: deploy, description: 'Choose deploy type:  mass or single', name:'deployType' ],
+            [$class     : 'StringParameterDefinition', defaultValue: '',
+                 description: 'url address for single deployment',
+                 name       : 'url'],
+            [$class: 'BooleanParameterDefinition', defaultValue: false, description: 'Check box to also install external plugins', name: 'externalPlugins']
+        ])
+        return serverInput
+    }
+}
+node {
+    def getDeploy = deployInput()
+    echo "choice: ${getDeploy.deployType}, string: ${getDeploy.url}, boolean: ${getDeploy.externalPlugins}"
+}
